@@ -1,10 +1,10 @@
-name: Flutter Build                     # वर्कफ़्लो का नाम
+name: Flutter Build                     
 
-on:                                     # ← यही सेक्शन ज़रूरी था
-  push:                                 # main ब्रांच पर हर push चलाओ
+on:                                     
+  push:                                 
     branches:
       - main
-  workflow_dispatch:                    # “Run workflow” बटन के लिए
+  workflow_dispatch:                    
 
 jobs:
   build:
