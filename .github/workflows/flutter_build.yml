@@ -1,7 +1,4 @@
-name: Flutter Build
-
-on:
-  push:
+push:
     branches: [ main ]        
   workflow_dispatch:         
 
@@ -40,3 +37,4 @@ jobs:
           name: colour-winning-apk
           path: build/app/outputs/flutter-apk/app-release.apk
           retention-days: 5               
+          ￼Enter
