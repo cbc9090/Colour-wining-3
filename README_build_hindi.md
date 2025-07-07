@@ -1,0 +1,1 @@
+// Placeholder for README_build_hindi.md
