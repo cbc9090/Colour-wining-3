@@ -1,44 +1,22 @@
-name: Flutter Build               # 0 spaces
+name: colour_winning
+description: Colour Prediction Trading App
+publish_to: 'none'        # we are not publishing this package
+version: 1.0.0+1
 
-on:                                # 0 spaces
-  push:                            # 2 spaces
-    branches:                      # 4 spaces
-      - main                       # 6 spaces
-  workflow_dispatch:               # 2 spaces
+environment:
+  sdk: ">=2.19.0 <4.0.0"
 
-jobs:                              # 0 spaces
-  build:                           # 2 spaces
-    runs-on: ubuntu-latest         # 4 spaces
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2      # 👉 उदाहरण dependency
 
-    steps:                         # 4 spaces
-      - name: Checkout code        # 6 spaces
-        uses: actions/checkout@v4  # 8 spaces
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
 
-      - name: Set up Java 17       # 6
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
+flutter:
+  uses-material-design: true
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.22.0'
-
-      - name: Disable analytics
-        run: flutter config --no-analytics
-
-      - name: Accept Android licences
-        run: yes | sdkmanager --licenses || true
-
-      - name: Get packages
-        run: flutter pub get
-
-      - name: Build APK
-        run: flutter build apk --release
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: colour-winning-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+  assets:
+    - assets/images/
