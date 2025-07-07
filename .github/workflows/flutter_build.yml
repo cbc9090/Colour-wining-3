@@ -11,8 +11,6 @@ permissions:
   contents: read
   id-token: write
 
-jobs
-
     runs-on: ubuntu-latest
 
     steps:
