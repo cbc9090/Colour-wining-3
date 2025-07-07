@@ -1,38 +1,37 @@
-Flutter Build
+name: Flutter Build               # 0 spaces
 
-on:push:
-    branches:
-      - main
-  workflow_dispatch:
+on:                                # 0 spaces
+  push:                            # 2 spaces
+    branches:                      # 4 spaces
+      - main                       # 6 spaces
+  workflow_dispatch:               # 2 spaces
 
-permissions:
-  contents: read
-  id-token: write
+jobs:                              # 0 spaces
+  build:                           # 2 spaces
+    runs-on: ubuntu-latest         # 4 spaces
 
-    runs-on: ubuntu-latest
+    steps:                         # 4 spaces
+      - name: Checkout code        # 6 spaces
+        uses: actions/checkout@v4  # 8 spaces
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Java 17
+      - name: Set up Java 17       # 6
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17
+          java-version: '17'
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.22.0'
 
-      - name: Disable Flutter Analytics
+      - name: Disable analytics
         run: flutter config --no-analytics
 
-      - name: Accept Android licenses
+      - name: Accept Android licences
         run: yes | sdkmanager --licenses || true
 
-      - name: Get dependencies
+      - name: Get packages
         run: flutter pub get
 
       - name: Build APK
